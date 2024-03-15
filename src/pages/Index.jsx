@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import BookingPopup from "../components/BookingPopup";
 
-function IndexPage() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
+const Index = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleBookingClose = () => setIsBookingOpen(false);
-  const handleBookingOpen = () => setIsBookingOpen(true);
+  const onClose = () => setIsOpen(false);
+  const onOpen = () => setIsOpen(true);
 
   return (
     <>
-      <Button onClick={handleBookingOpen}>Book Now</Button>
-      <BookingPopup isOpen={isBookingOpen} onClose={handleBookingClose} />
+      <Button colorScheme="teal" onClick={onOpen}>
+        Book Now
+      </Button>
+      <BookingPopup isOpen={isOpen} onClose={onClose} />
     </>
   );
-}
+};
 
-export default IndexPage;
+export default Index;
